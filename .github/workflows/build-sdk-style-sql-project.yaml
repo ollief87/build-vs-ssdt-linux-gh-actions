@@ -1,0 +1,14 @@
+# GitHub Action to build an SDK-style SQL project
+name: Build SDK-style SQL Project
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  build-sql-project:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
