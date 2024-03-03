@@ -15,4 +15,9 @@ jobs:
       - name: Restore Packages
         run: dotnet restore ./src/EmployeeDbSdk/EmployeeDbSdk.sqlproj
       - name: Build SQL Project
-        run: dotnet build ./src/EmployeeDbSdk/EmployeeDbSdk.sqlproj /p:NetCoreBuild=true
+        run: dotnet build ./src/EmployeeDbSdk/EmployeeDbSdk.sqlproj --configuration Release /p:NetCoreBuild=true
+      - name: Publish SQL Build Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+            name: sql-artifacts
+            path: ./src/EmployeeDbSdk/bin/Release

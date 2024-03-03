@@ -38,4 +38,9 @@ jobs:
             cd $GITHUB_WORKSPACE
             rm -r /tmp/microsoft.build.sql
       - name: Build SQL Project
-        run: dotnet build ./src/EmployeeDb/EmployeeDb.sqlproj /p:NetCoreBuild=true /p:NETCoreTargetsPath="$GITHUB_WORKSPACE/SqlBuildTools"
+        run: dotnet build ./src/EmployeeDb/EmployeeDb.sqlproj --configuration Release /p:NetCoreBuild=true /p:NETCoreTargetsPath="$GITHUB_WORKSPACE/SqlBuildTools"
+      - name: Publish SQL Build Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+            name: sql-artifacts
+            path: ./src/EmployeeDb/bin/Release
