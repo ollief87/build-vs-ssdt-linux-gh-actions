@@ -25,6 +25,7 @@ jobs:
                Microsoft.Data.Tools.Schema.Sql.dll \
                Microsoft.Data.Tools.Schema.SqlTasks.targets \
                Microsoft.Data.Tools.Schema.Tasks.Sql.dll \
+               Microsoft.Data.Tools.Sql.DesignServices.dll \
                Microsoft.Data.Tools.Utilities.dll \
                Microsoft.SqlServer.Dac.dll \
                Microsoft.SqlServer.Dac.Extensions.dll \
