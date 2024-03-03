@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Restore Packages
+        run: dotnet restore ./src/EmployeeDb/EmployeeDb.sqlproj
       - name: Download SQL Build Tools
         run: |
             # https://www.nuget.org/packages/Microsoft.Build.Sql
