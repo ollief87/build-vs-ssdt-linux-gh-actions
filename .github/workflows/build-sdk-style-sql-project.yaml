@@ -12,5 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Restore packages
+      - name: Restore Packages
         run: dotnet restore ./src/EmployeeDbSdk/EmployeeDbSdk.sqlproj
+      - name: Build SQL Project
+        run: dotnet build ./src/EmployeeDbSdk/EmployeeDbSdk.sqlproj /p:NetCoreBuild=true
