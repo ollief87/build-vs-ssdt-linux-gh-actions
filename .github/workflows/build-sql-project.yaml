@@ -22,18 +22,19 @@ jobs:
             cd /tmp/microsoft.build.sql/tools/netstandard2.1/
             mkdir $GITHUB_WORKSPACE/SqlBuildTools
             cp Microsoft.Data.SqlClient.dll \
-            Microsoft.Data.Tools.Schema.Sql.dll \
-            Microsoft.Data.Tools.Schema.SqlTasks.targets \
-            Microsoft.Data.Tools.Schema.Tasks.Sql.dll \
-            Microsoft.Data.Tools.Utilities.dll \
-            Microsoft.SqlServer.Dac.dll \
-            Microsoft.SqlServer.Dac.Extensions.dll \
-            Microsoft.SqlServer.TransactSql.ScriptDom.dll \
-            Microsoft.SqlServer.Types.dll \
-            System.ComponentModel.Composition.dll \
-            System.IO.Packaging.dll \
-            $GITHUB_WORKSPACE/SqlBuildTools
+               Microsoft.Data.Tools.Schema.Sql.dll \
+               Microsoft.Data.Tools.Schema.SqlTasks.targets \
+               Microsoft.Data.Tools.Schema.Tasks.Sql.dll \
+               Microsoft.Data.Tools.Utilities.dll \
+               Microsoft.SqlServer.Dac.dll \
+               Microsoft.SqlServer.Dac.Extensions.dll \
+               Microsoft.SqlServer.TransactSql.ScriptDom.dll \
+               Microsoft.SqlServer.Types.dll \
+               System.ComponentModel.Composition.dll \
+               System.IO.Packaging.dll \
+               $GITHUB_WORKSPACE/SqlBuildTools
             cd $GITHUB_WORKSPACE
             rm -r /tmp/microsoft.build.sql
+            ls $GITHUB_WORKSPACE/SqlBuildTools
       - name: Build SQL Project
         run: dotnet build ./src/EmployeeDb/EmployeeDb.sqlproj /p:NetCoreBuild=true /p:NETCoreTargetsPath="$GITHUB_WORKSPACE/SqlBuildTools"
