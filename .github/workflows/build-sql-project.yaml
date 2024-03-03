@@ -16,7 +16,7 @@ jobs:
         run: |
             # https://www.nuget.org/packages/Microsoft.Build.Sql
             curl -sSL -o /tmp/microsoft.build.sql.zip https://globalcdn.nuget.org/packages/microsoft.build.sql.0.1.15-preview.nupkg
-            sudo apt install unzip
+            sudo apt-get install unzip
             mkdir /tmp/microsoft.build.sql
             unzip /tmp/microsoft.build.sql.zip -d /tmp/microsoft.build.sql
             cd /tmp/microsoft.build.sql/tools/netstandard2.1/
