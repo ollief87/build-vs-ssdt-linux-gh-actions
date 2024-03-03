@@ -12,3 +12,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Restore packages
+        run: dotnet restore ./src/EmployeeDb/EmployeeDb.sqlproj
