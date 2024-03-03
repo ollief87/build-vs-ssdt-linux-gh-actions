@@ -17,7 +17,7 @@ jobs:
       - name: Build SQL Project
         run: dotnet build ./src/EmployeeDbSdk/EmployeeDbSdk.sqlproj --configuration Release /p:NetCoreBuild=true
       - name: Publish SQL Build Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
             name: sql-artifacts
             path: ./src/EmployeeDbSdk/bin/Release

@@ -40,7 +40,7 @@ jobs:
       - name: Build SQL Project
         run: dotnet build ./src/EmployeeDb/EmployeeDb.sqlproj --configuration Release /p:NetCoreBuild=true /p:NETCoreTargetsPath="$GITHUB_WORKSPACE/SqlBuildTools"
       - name: Publish SQL Build Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
             name: sql-artifacts
             path: ./src/EmployeeDb/bin/Release
