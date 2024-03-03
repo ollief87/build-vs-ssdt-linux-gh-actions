@@ -28,6 +28,7 @@ jobs:
                Microsoft.Data.Tools.Utilities.dll \
                Microsoft.SqlServer.Dac.dll \
                Microsoft.SqlServer.Dac.Extensions.dll \
+               Microsoft.SqlServer.Server.dll \
                Microsoft.SqlServer.TransactSql.ScriptDom.dll \
                Microsoft.SqlServer.Types.dll \
                System.ComponentModel.Composition.dll \
@@ -35,6 +36,5 @@ jobs:
                $GITHUB_WORKSPACE/SqlBuildTools
             cd $GITHUB_WORKSPACE
             rm -r /tmp/microsoft.build.sql
-            dotnet build ./src/EmployeeDb/EmployeeDb.sqlproj /p:NetCoreBuild=true /p:NETCoreTargetsPath="$GITHUB_WORKSPACE/SqlBuildTools"
       - name: Build SQL Project
         run: dotnet build ./src/EmployeeDb/EmployeeDb.sqlproj /p:NetCoreBuild=true /p:NETCoreTargetsPath="$GITHUB_WORKSPACE/SqlBuildTools"
