@@ -12,5 +12,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Restore packages
-        run: dotnet restore ./src/EmployeeDb/EmployeeDb.sqlproj
+      - name: Install SQL Project Build Tools
+        run: |
+            # https://www.nuget.org/packages/Microsoft.Build.Sql
+            curl -sSL -o /tmp/microsoft.build.sql.zip https://globalcdn.nuget.org/packages/microsoft.build.sql.0.1.15-preview.nupkg
+            sudo apt install unzip
+            mkdir /tmp/microsoft.build.sql
+            unzip /tmp/microsoft.build.sql.zip -d /tmp/microsoft.build.sql
+            cd /tmp/microsoft.build.sql/tools/netstandard2.1/
+            mkdir $GITHUB_WORKSPACE/SqlBuildTools
+            cp Microsoft.Data.SqlClient.dll \
+            Microsoft.Data.Tools.Schema.Sql.dll \
+            Microsoft.Data.Tools.Schema.SqlTasks.targets \
+            Microsoft.Data.Tools.Schema.Tasks.Sql.dll \
+            Microsoft.Data.Tools.Utilities.dll \
+            Microsoft.SqlServer.Dac.dll \
+            Microsoft.SqlServer.Dac.Extensions.dll \
+            Microsoft.SqlServer.TransactSql.ScriptDom.dll \
+            Microsoft.SqlServer.Types.dll \
+            System.ComponentModel.Composition.dll \
+            System.IO.Packaging.dll \
+            $GITHUB_WORKSPACE/SqlBuildTools
+            cd $GITHUB_WORKSPACE
+            rm -r /tmp/microsoft.build.sql
